@@ -1,0 +1,18 @@
+{
+  "gifts": [
+    {
+      "id": "1",
+      "name": "Curso",
+      "description": "Curso de programação",
+      "price": 100,
+      "url": "https://www.google.com.br"
+    },
+    {
+      "name": "Novo Gift",
+      "price": 0,
+      "description": "isso é um presente",
+      "url": "asdasdasd",
+      "id": "a1ao341"
+    }
+  ]
+}
