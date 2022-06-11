@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import axios from 'axios';
 
-const AddGift: React.FC = () => {
+const AddGift: React.FC = (props) => {
+
+    const eventId = window.location.href.split('?q=')[1];
 
     type Gift = {
         name: string;
@@ -18,13 +20,14 @@ const AddGift: React.FC = () => {
     });
 
     const handleSubmit = () => {
-        axios.post('http://localhost:8080/gifts', newGift)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        fetch(`http://localhost:8080/events/${eventId}`)
+        .then(res => res.json())
+        .then(data => {
+            var newData = data;
+            newData.gifts.push(newGift);
+            axios.put(`http://localhost:8080/events/${eventId}`, newData)
+        })
+        window.location.reload();
     }
 
 

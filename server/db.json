@@ -1,18 +1,69 @@
 {
-  "gifts": [
+  "events": [
     {
-      "id": "1",
-      "name": "Curso",
-      "description": "Curso de programação",
-      "price": 100,
-      "url": "https://www.google.com.br"
+      "id": 1,
+      "name": "Inauguração",
+      "date": "2020-01-01",
+      "gifts": [
+        {
+          "name": "Hugo para viagem",
+          "price": 43.52,
+          "description": "Euzinho de presente",
+          "url": "https://hugofolloni.netlify.app",
+          "checked": false,
+          "image": "https://cdn.sla"
+        }
+      ],
+      "owner": "hugofollogua07@gmail.com"
     },
     {
-      "name": "Novo Gift",
-      "price": 0,
-      "description": "isso é um presente",
-      "url": "asdasdasd",
-      "id": "a1ao341"
+      "name": "Sim",
+      "date": "2022-06-11",
+      "owner": "hugofg@dcc.ufrj.br",
+      "gifts": [
+        {
+          "name": "12312",
+          "price": 1123,
+          "description": "123",
+          "url": ""
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Sim",
+      "date": "2022-06-11",
+      "owner": "hugofg@dcc.ufrj.br",
+      "gifts": [],
+      "id": 3
+    },
+    {
+      "name": "Aniversário",
+      "date": "2022-06-11",
+      "owner": "hugofg@dcc.ufrj.br",
+      "gifts": [],
+      "id": 4
+    },
+    {
+      "name": "Aniversário",
+      "date": "2022-06-11",
+      "owner": "hugofg@dcc.ufrj.br",
+      "gifts": [],
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Hugo Folloni",
+      "email": "hugofollogua07@gmail.com",
+      "password": "123456"
+    },
+    {
+      "email": "hugofg@dcc.ufrj.br",
+      "password": "senha_legal",
+      "name": "Hugo",
+      "id": 2
     }
   ]
 }

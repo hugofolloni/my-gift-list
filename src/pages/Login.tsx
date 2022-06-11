@@ -8,7 +8,18 @@ const SignIn: React.FC = () => {
     const [password, setPassword] = useState<string>('');
 
     const handleSubmit = () => {
-        console.log(email, password);
+        fetch(`http://localhost:8080/users?email=${email}`)
+        .then(res => res.json())
+        .then(data => {
+            if(data.length > 0){
+                if(data[0].password === password){
+                    localStorage.setItem('email', email);
+                    return window.location.href = `http://localhost:3000/profile`;
+                }
+                else{
+                    alert("Email or password is incorrect");
+                }
+            }})
     }
 
     return (

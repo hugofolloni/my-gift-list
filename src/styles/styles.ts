@@ -11,7 +11,7 @@ export const GiftContainer = styled.div`
 
 export const UniqueGift = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 `
