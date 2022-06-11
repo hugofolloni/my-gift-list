@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Event from './pages/Event';
 import MyEvents from './pages/MyEvents';
@@ -11,7 +12,7 @@ function App() {
     <Router>
     <div className="App">
       <Routes>
-        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/event" element={<Event/>}/>
         <Route path="/profile" element={<MyEvents/>}/>

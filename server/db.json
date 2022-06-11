@@ -1,9 +1,9 @@
 {
   "events": [
     {
-      "id": 1,
       "name": "Inauguração",
       "date": "2020-01-01",
+      "owner": "hugofolloni",
       "gifts": [
         {
           "name": "Hugo para viagem",
@@ -12,14 +12,36 @@
           "url": "https://hugofolloni.netlify.app",
           "checked": false,
           "image": "https://cdn.sla"
+        },
+        {
+          "name": "Não sei",
+          "price": 12,
+          "description": "213",
+          "url": "42",
+          "checked": true
+        },
+        {
+          "name": "Guitarra",
+          "price": 123,
+          "description": "3",
+          "url": "",
+          "checked": true
+        },
+        {
+          "name": "Pedal Boss",
+          "price": 423,
+          "description": "Um pedal distorção boss OD-1W",
+          "url": "https://shopee.com",
+          "checked": false,
+          "image": ""
         }
       ],
-      "owner": "hugofollogua07@gmail.com"
+      "id": 1
     },
     {
       "name": "Sim",
       "date": "2022-06-11",
-      "owner": "hugofg@dcc.ufrj.br",
+      "owner": "hugofolloni",
       "gifts": [
         {
           "name": "12312",
@@ -33,23 +55,37 @@
     {
       "name": "Sim",
       "date": "2022-06-11",
-      "owner": "hugofg@dcc.ufrj.br",
+      "owner": "hugofg",
       "gifts": [],
       "id": 3
     },
     {
       "name": "Aniversário",
       "date": "2022-06-11",
-      "owner": "hugofg@dcc.ufrj.br",
+      "owner": "hugofg",
       "gifts": [],
       "id": 4
     },
     {
       "name": "Aniversário",
       "date": "2022-06-11",
-      "owner": "hugofg@dcc.ufrj.br",
+      "owner": "hugofg",
       "gifts": [],
       "id": 5
+    },
+    {
+      "name": "Evento Teste",
+      "date": "Evento Teste",
+      "owner": "hugofolloni",
+      "gifts": [],
+      "id": 6
+    },
+    {
+      "name": "asdasd",
+      "date": "asdasd",
+      "owner": "hugofolloni",
+      "gifts": [],
+      "id": 7
     }
   ],
   "users": [
@@ -57,13 +93,15 @@
       "id": 1,
       "name": "Hugo Folloni",
       "email": "hugofollogua07@gmail.com",
-      "password": "123456"
+      "password": "123456",
+      "username": "hugofolloni"
     },
     {
       "email": "hugofg@dcc.ufrj.br",
       "password": "senha_legal",
       "name": "Hugo",
-      "id": 2
+      "id": 2,
+      "username": "hugofg"
     }
   ]
 }
