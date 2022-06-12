@@ -26,7 +26,11 @@ const SignIn: React.FC = () => {
                 else{
                     alert("Username or password is incorrect");
                 }
-            }})
+            }
+            else{   
+                alert("Username or password is incorrect");
+            }
+        })
     }
 
     return (

@@ -37,7 +37,7 @@ const MyEvents: React.FC = () => {
     const handleSubmit = () => {
         axios.post('http://localhost:8080/events', {
             name: newEventName,
-            date: newEventName,
+            date: newEventDate,
             owner: username,
             gifts: []
         })
@@ -89,7 +89,7 @@ const MyEvents: React.FC = () => {
                             myEvents.map(event => (
                                 <SingleEventDiv>
                                     <SingleEventHeader>
-                                        <InfoTitle>{event.name}</InfoTitle>
+                                        <InfoTitle>{event.name} - {event.id}</InfoTitle>
                                         <ColoredButton style={{height: '30px'}} onClick={() => window.location.href=`/event?q=${event.id}`}>Go to event</ColoredButton>
                                     </SingleEventHeader>
                                     <span>- <strong>Date:</strong> {event.date}</span>

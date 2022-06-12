@@ -4,7 +4,7 @@ import { FooterDiv } from "../styles/styles"
 const Footer: React.FC = () => {
     return (
         <FooterDiv>
-            <p>This is a project made by <a href="https://github.com/hugofolloni">hugofolloni</a>.</p>
+            <p>This is a project made by <a href="https://hugofolloni.netlify.app">hugofolloni</a>.</p>
         </FooterDiv>
     )
 }

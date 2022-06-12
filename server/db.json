@@ -84,8 +84,33 @@
       "name": "asdasd",
       "date": "asdasd",
       "owner": "hugofolloni",
-      "gifts": [],
+      "gifts": [
+        {
+          "name": "Skin da Bolhinha",
+          "price": 120,
+          "description": "A skin faz blublubluiblubh",
+          "url": "https://playvalorant.com",
+          "image": "",
+          "checked": true
+        }
+      ],
       "id": 7
+    },
+    {
+      "name": "Festa Junina pro Mion pegar...",
+      "date": "Festa Junina pro Mion pegar...",
+      "owner": "hugofolloni",
+      "gifts": [
+        {
+          "name": "Espiga de Milho",
+          "price": 120,
+          "description": "Uma espiga amarela eba",
+          "url": "https://prezunic.com",
+          "image": "",
+          "checked": true
+        }
+      ],
+      "id": 8
     }
   ],
   "users": [
@@ -102,6 +127,13 @@
       "name": "Hugo",
       "id": 2,
       "username": "hugofg"
+    },
+    {
+      "username": "dxmadu",
+      "email": "dxmadu@gostosao.com",
+      "password": "gostosao",
+      "name": "Daniel Machado",
+      "id": 3
     }
   ]
 }

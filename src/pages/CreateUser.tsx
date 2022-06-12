@@ -17,19 +17,22 @@ const CreateUser: React.FC = () => {
                 if(data.length > 0){
                     return alert('User already exists');
                 }
-            })       
-            axios.post('http://localhost:8080/users', {
+            })  
+            .then(() => {
+                axios.post('http://localhost:8080/users', {
                 username: username,
                 email: email,
                 password: password,
                 name: name
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+                .then(() => {
+                    localStorage.setItem('username', username);
+                    window.location.href = '/profile';
+                })
             })
-            .catch(err => {
-                console.log(err);
-            }
-            );
-            localStorage.setItem('username', username);
-            window.location.href = '/profile';
         }
 
         return (

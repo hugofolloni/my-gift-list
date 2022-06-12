@@ -21,6 +21,7 @@ const Event: React.FC = () => {
         date: string;
         gifts: Gift[];
         owner: string;
+        id: number;
     }
 
     const eventId = window.location.href.split('?q=')[1];
@@ -38,7 +39,7 @@ const Event: React.FC = () => {
         fetch(`http://localhost:8080/events/${eventId}`)
         .then(res => res.json())
         .then(data => {
-            setEvent({"name": data.name, "date": data.date, "gifts": data.gifts, "owner": data.owner});
+            setEvent({"id": data.id, "name": data.name, "date": data.date, "gifts": data.gifts, "owner": data.owner});
             setGifts(data.gifts);
             if(data.name !== undefined) setEventExists(true);
         })
@@ -117,9 +118,10 @@ const Event: React.FC = () => {
             <Header />
             {eventExists ?
                 <GiftContainer>
-                    <div style={{width: '30%', border: 'none', marginLeft: '20px'}}>
-                        <InfoTitle style={{fontSize: '42px'}}>{event?.name}</InfoTitle>
+                    <div style={{width: '30%', border: 'none', marginLeft: '20px', display: 'flex', flexDirection: 'column'}}>
+                        <InfoTitle style={{fontSize: '42px', marginBottom: '5px'}}>{event?.name}</InfoTitle>
                        <span><strong>Date: </strong>{event?.date}</span>
+                       <span><strong>Id: </strong>{event?.id}</span>
                     </div>
                     <InfoDiv style={{width: '55%'}}>
                     <HeaderEvents>
