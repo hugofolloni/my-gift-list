@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
-import { Body, ProfileDiv, InfoDiv, InfoTitle, CloseButton, CreateEventButton, CreateEventDiv, HeaderEvents, TranslucentBackground, FormItem, FormLabel, FormInput, ColoredButton, EventList, SingleEventDiv, SingleEventHeader, ProfileImage } from '../styles/styles';
+import { Body, ProfileDiv, InfoDiv, ListDiv, InfoTitle, CloseButton, CreateEventButton, CreateEventDiv, HeaderEvents, TranslucentBackground, FormItem, FormLabel, FormInput, ColoredButton, EventList, SingleEventDiv, SingleEventHeader, ProfileImage, RedButton } from '../styles/styles';
 import baloons from '../assets/baloons.svg';
 
 const MyEvents: React.FC = () => {
@@ -19,13 +19,13 @@ const MyEvents: React.FC = () => {
         url: string;
         checked: boolean;
         image: string;
+        event: number;
     }
 
     type Event = {
         id: number;
         name: string;
         date: string;
-        gifts: Gift[];
     }
 
     const [myEvents, setMyEvents] = useState<Event[]>([]);
@@ -35,28 +35,31 @@ const MyEvents: React.FC = () => {
     const [newEventDate, setNewEventDate] = useState<string>('');
 
     const handleSubmit = () => {
-        axios.post('http://localhost:8080/events', {
+        axios.post('http://localhost:4000/api/events', {
             name: newEventName,
             date: newEventDate,
-            owner: username,
-            gifts: []
+            owner: username
         })
         .then(res => {
-            var newId:number = res.data.id;
-            window.location.href = `/event?q=${newId}`
+            fetch(`http://localhost:4000/api/events?owner=${username}&name=${newEventName}`)
+            .then(res => res.json())
+            .then(res => {
+                window.location.href = `/event?q=${res[0].id}`;
+            }
+            )
         })
 
     }
 
     useEffect(() => {
     if(username !== undefined){
-        fetch(`http://localhost:8080/events?owner=${username}`)
+        fetch(`http://localhost:4000/api/events?owner=${username}`)
         .then(res => res.json())
         .then(data => {
             setMyEvents(data)
             if(data.length > 0) setEventExists(true);
         })
-        fetch(`http://localhost:8080/users?username=${username}`)
+        fetch(`http://localhost:4000/api/users?username=${username}`)
         .then(res => res.json())
         .then(data => {
             setEmail(data[0].email);
@@ -67,18 +70,26 @@ const MyEvents: React.FC = () => {
 
     const [createEventDiv, setCreateEventDiv] = useState<boolean>(false);
 
+    const deleteEvent = (id: number) => {
+        axios.delete(`http://localhost:4000/api/events/${id}`)
+        .then(res => {
+            window.location.reload();
+        }
+        )
+    }
+
 
     return (
         <Body>
             <Header />
             <ProfileDiv>
-                <InfoDiv style={{width: '25%', height: '30%'}}>
+                <InfoDiv>
                     <InfoTitle>@{ username }</InfoTitle>
                     <span>- <strong>Name:</strong> { name }</span>
                     <span>- <strong>Email:</strong> { email }</span>
                     <span>- <strong>Number of events:</strong> { myEvents.length} </span>
                 </InfoDiv>
-                <InfoDiv style={{width: '55%'}}>
+                <ListDiv>
                     <HeaderEvents>
                         <h1>My Events</h1>
                         <CreateEventButton onClick={() => setCreateEventDiv(true)}>+</CreateEventButton>
@@ -93,12 +104,13 @@ const MyEvents: React.FC = () => {
                                         <ColoredButton style={{height: '30px'}} onClick={() => window.location.href=`/event?q=${event.id}`}>Go to event</ColoredButton>
                                     </SingleEventHeader>
                                     <span>- <strong>Date:</strong> {event.date}</span>
-                                    <span>- <strong>Number of gifts: </strong>{event.gifts.length}</span>
+                                    <RedButton style={{ marginLeft: '75%'}} onClick={() => deleteEvent(event.id)}>Delete</RedButton>
+                                    {/* <span>- <strong>Number of gifts: </strong>{event}</span> */}
                                 </SingleEventDiv>
                             ))}
                         </EventList>)
                     : <div>You don't have any events yet</div>}
-                </InfoDiv>
+                </ListDiv>
        
             </ProfileDiv>
             <Footer/>

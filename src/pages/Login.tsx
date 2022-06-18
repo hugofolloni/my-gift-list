@@ -15,7 +15,7 @@ const SignIn: React.FC = () => {
     })
 
     const handleSubmit = () => {
-        fetch(`http://localhost:8080/users?username=${username}`)
+        fetch(`http://localhost:4000/api/users?username=${username}`)
         .then(res => res.json())
         .then(data => {
             if(data.length > 0){

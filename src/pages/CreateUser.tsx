@@ -11,7 +11,7 @@ const CreateUser: React.FC = () => {
         const [name, setName] = useState<string>('');
 
         const handleSubmit = () => {
-            fetch(`http://localhost:8080/users?username=${username}`)
+            fetch(`http://localhost:4000/api/users?username=${username}`)
             .then(res => res.json())
             .then(data => {
                 if(data.length > 0){
@@ -19,7 +19,7 @@ const CreateUser: React.FC = () => {
                 }
             })  
             .then(() => {
-                axios.post('http://localhost:8080/users', {
+                axios.post('http://localhost:4000/api/users', {
                 username: username,
                 email: email,
                 password: password,

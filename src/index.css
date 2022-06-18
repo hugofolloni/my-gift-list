@@ -9,6 +9,12 @@ body {
   overflow-y: hidden;
 }
 
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
